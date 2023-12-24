@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.layout {
+  grid-column: 2;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.demo-article div {
+  grid-column: 2;
+}
+
+.demo-article div p:last-of-type {
+  font-weight: 300;
+}
+
+/* HEADER */
+
+header {
+  color: #2b2b2b;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-block-start: 16px;
+  margin-block-end: 15px;
+}
+
+header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+header h4 {
+  font-size: 0.8rem;
+  font-weight: 300;
+  display: flex;
+  align-items: flex-end;
+  width: 155px;
+  margin: 0;
+}
+
+header h4 img {
+  max-width: 50px;
+  padding-inline-start: 3px;
+  padding-block-end: 2px;
+}
+
+/* RECOMMENDATIONS LIST */
+
+.rec-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1rem;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+}
+
+.rec-card {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-block-end: 10px;
+
+  outline: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: box-shadow 0.3s;
+
+  background-color: #fdfdfd;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.rec-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px;
+}
+
+.rec-card:hover img {
+  filter: brightness(60%);
+}
+
+.rec-card a {
+  display: block;
+  height: 100%;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+}
+
+.rec-card:hover a article div {
+  text-decoration: underline;
+}
+
+.rec-card button.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #e5e2e2ce;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.rec-card:hover button.delete-btn {
+  opacity: 1;
+}
+
+.rec-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.rec-card img.error {
+  display: none;
+}
+
+.rec-card article {
+  height: 100px;
+  padding: 10px 20px;
+}
+
+.rec-card article p {
+  padding-top: 10px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.branding {
+  font-size: 0.8rem;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-block-start: 30px;
+}
+
+.error-container button {
+  width: 100px;
+  height: 30px;
+  background-color: #3d7bd1;
+  color: #f7f7f7;
+  border-radius: 0.5em;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
