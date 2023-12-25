@@ -2,13 +2,16 @@
   box-sizing: border-box;
 }
 
+/* Media Query - mobile first */
+
 body {
   background-color: #f7f7f7;
   font-family: "Noto Sans", sans-serif;
   margin: 0;
   padding: 0;
+
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 20px 1fr 20px;
 }
 
 .layout {
@@ -35,57 +38,51 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-block-start: 16px;
-  margin-block-end: 15px;
+  align-items: center;
+  padding-block: 16px;
 }
 
 header h2 {
   font-size: 1.4rem;
   margin: 0;
-  display: flex;
-  align-items: flex-end;
+  text-align: center;
 }
 
 header h4 {
   font-size: 0.8rem;
   font-weight: 300;
-  display: flex;
-  align-items: flex-end;
-  width: 155px;
+  width: 160px;
   margin: 0;
+  padding-top: 7px;
 }
 
 header h4 img {
   max-width: 50px;
-  padding-inline-start: 3px;
-  padding-block-end: 2px;
+  padding-inline-start: 1px;
 }
 
 /* RECOMMENDATIONS LIST */
 
 .rec-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
-  padding-inline-start: 0;
   margin-block-start: 0;
+  padding-inline-start: 0;
 }
 
 .rec-card {
-  height: 300px;
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-block-end: 10px;
-
   outline: none;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   transition: box-shadow 0.3s;
-
   background-color: #fdfdfd;
   overflow: hidden;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .rec-card:hover {
@@ -98,10 +95,8 @@ header h4 img {
 
 .rec-card a {
   display: block;
-  height: 100%;
   color: #333;
   text-decoration: none;
-  position: relative;
 }
 
 .rec-card:hover a article div {
@@ -121,7 +116,7 @@ header h4 img {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
   z-index: 1;
 }
@@ -141,12 +136,10 @@ header h4 img {
 }
 
 .rec-card article {
-  height: 100px;
   padding: 10px 20px;
 }
 
 .rec-card article p {
-  padding-top: 10px;
   font-weight: 600;
   margin: 0;
 }
@@ -171,4 +164,24 @@ header h4 img {
   border-radius: 0.5em;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.error-container button:hover {
+  filter: brightness(85%);
+}
+
+/* Media Query for Larger Screens */
+
+@media (min-width: 600px) {
+  body {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+
+  .rec-list {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  }
+
+  .rec-card button.delete-btn {
+    opacity: 0;
+  }
 }
