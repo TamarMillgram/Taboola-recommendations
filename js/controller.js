@@ -1,11 +1,18 @@
 'use strict'
+import { recService } from "./services/recService.js"
+import {storageService} from "./services/storage.js"
+
+
+(function () {
+    document.body.onload = onInit;
+})()
 
 function onInit() {
     loadRecommendations()
 }
 
 function loadRecommendations(){
-    fetchTaboolaRecommendations()
+    recService.fetchTaboolaRecommendations()
         .then(taboolaData => renderRecommendations(taboolaData))
         .catch(error => console.error('Error in onInit:', error))
 }
@@ -33,16 +40,16 @@ function renderRecommendations(recs) {
 
 function onDeleteRecommendation(event, index) {
     event.stopPropagation()
-    const recommendations = loadFromStorage(STORAGE_KEY) || []
+    const recommendations = storageService.loadFromStorage(STORAGE_KEY) || []
     recommendations.splice(index, 1)
-    saveToStorage(STORAGE_KEY, recommendations)
+    storageService.saveToStorage(STORAGE_KEY, recommendations)
     renderRecommendations(recommendations)
 }``
 
 function renderError() {
     const elErrContainer = document.querySelector('.error-container')
     const elBtn = elErrContainer.querySelector('button')
-    elBtn.onclick = loadRecommendations()
+    elBtn.onclick = storageService.loadRecommendations()
     elErrContainer.style.display = 'block'
 }
 
