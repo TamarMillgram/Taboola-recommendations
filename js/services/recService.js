@@ -1,14 +1,12 @@
-'use strict';
-
 export const recService = {
     fetchTaboolaRecommendations
 } 
 
 import {storageService} from "./storage.js"
 
-const API_KEY = 'f9040ab1b9c802857aa783c469d0e0ff7e7366e4';
-const STORAGE_KEY = 'taboolaDB';
-const gTaboolaCache = storageService.loadFromStorage(STORAGE_KEY);
+const API_KEY = 'f9040ab1b9c802857aa783c469d0e0ff7e7366e4'
+const STORAGE_KEY = 'taboolaDB'
+const gTaboolaCache = storageService.loadFromStorage(STORAGE_KEY)
 let count = 10
 
 
