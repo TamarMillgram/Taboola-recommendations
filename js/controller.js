@@ -9,8 +9,9 @@ export const recController = {
     renderError
 }
 
- document.body.onload = onInit;
+const STORAGE_KEY = 'taboolaDB' // for testing only
 
+document.body.onload = onInit;
 
 function onInit() {
     loadRecommendations()
@@ -35,8 +36,7 @@ function renderRecommendations(recs) {
                 </article>
                 </a>
                 <button class="delete-btn" onclick="onDeleteRecommendation(event, ${index})">X</button> 
-        </li>
-    `
+        </li>`
     )
 
     document.querySelector('.rec-list').innerHTML = strHTML.join('')
@@ -48,7 +48,9 @@ function onDeleteRecommendation(event, index) {
     recommendations.splice(index, 1)
     storageService.saveToStorage(STORAGE_KEY, recommendations)
     renderRecommendations(recommendations)
-}
+  }
+
+window.onDeleteRecommendation = onDeleteRecommendation // this function was added to the global scope (window object), because of type module
 
 function renderError() {
     const elErrContainer = document.querySelector('.error-container')
@@ -56,6 +58,5 @@ function renderError() {
     elBtn.onclick = storageService.loadRecommendations
     elErrContainer.style.display = 'flex'
 }
-
 
 

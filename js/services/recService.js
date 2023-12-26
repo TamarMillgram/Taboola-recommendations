@@ -1,5 +1,5 @@
 export const recService = {
-    fetchTaboolaRecommendations
+    fetchTaboolaRecommendations,
 } 
 
 import {storageService} from "./storage.js"

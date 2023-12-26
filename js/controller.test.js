@@ -3,6 +3,7 @@ import { recService} from './services/recService.js'
 import {storageService} from './services/storage.js'
 import { jest } from '@jest/globals'
 
+const STORAGE_KEY = 'taboolaDB'
 
 describe('main file testing', () => {
 
@@ -212,7 +213,6 @@ global.fetch = jest.fn(() =>
   })
 )
 
-
 test('renders 8 widgets when got 8', () => {
     recController.renderRecommendations(requestRes.data.list)
     expect(document.querySelector('.rec-list').childElementCount)
@@ -221,22 +221,24 @@ test('renders 8 widgets when got 8', () => {
 
 test('onDeleteRecommendation should delete recommendation', () => {
     const event = { stopPropagation: jest.fn() }
-    const index = 1
+    const index = 1;
     const recommendations = [
-      { name: 'Recommendation 1', thumbnail: 'thumbnail1', url: 'url1', branding: 'branding1' },
-      { name: 'Recommendation 2', thumbnail: 'thumbnail2', url: 'url2', branding: 'branding2' },
+      { name: 'Recommendation 1', thumbnail: ['thumbnail1'], url: 'url1', branding: 'branding1' },
+      { name: 'Recommendation 2', thumbnail: ['thumbnail2'], url: 'url2', branding: 'branding2' },
     ]
   
-    recController.onDeleteRecommendation(event, index)
-    expect(event.stopPropagation).toHaveBeenCalledTimes();
+    recController.onDeleteRecommendation(event, index);
   
-    expect(recommendations).toEqual([
-      { name: 'Recommendation 1', thumbnail: 'thumbnail1', url: 'url1', branding: 'branding1' },
-    ])
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+  
+    const updatedRecommendations = storageService.loadFromStorage(STORAGE_KEY) || []
+    expect(updatedRecommendations).toEqual([
+        { name: 'Recommendation 1', thumbnail: 'thumbnail1', url: 'url1', branding: 'branding1' },
+      ])
   })
   
-
-
+  
+   
 test('showing error container when error', () => {
     recController.renderError()
     expect(document.querySelector('.error-container').style.display)
