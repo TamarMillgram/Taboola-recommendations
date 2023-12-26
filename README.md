@@ -8,11 +8,11 @@ I did my best to create an efficient and clean project, taking the time to refac
 
 # Tech Stack
 
-- :heavy_check_mark: **Vanilla JS**
-- :heavy_check_mark: **HTML**
-- :heavy_check_mark: **CSS**
-- :heavy_check_mark: **NPM**
-- :heavy_check_mark: **Jest**
+- **Vanilla JS**
+- **HTML**
+- **CSS**
+- **NPM**
+- **Jest**
 
 ![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat&logo=javascript)
 ![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat&logo=html5)
