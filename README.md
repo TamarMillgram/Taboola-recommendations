@@ -14,6 +14,12 @@ I did my best to create an efficient and clean project, taking the time to refac
 - :heavy_check_mark: **NPM**
 - :heavy_check_mark: **Jest**
 
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat&logo=javascript)
+![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS3-black?style=flat&logo=css3)
+![NPM](https://img.shields.io/badge/-NPM-black?style=flat&logo=npm)
+![Jest](https://img.shields.io/badge/-Jest-black?style=flat&logo=jest)
+
 ## Installation
 
 To run this project, use any version of live server.
