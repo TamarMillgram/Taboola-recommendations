@@ -9,7 +9,6 @@ const STORAGE_KEY = 'taboolaDB'
 const gTaboolaCache = storageService.loadFromStorage(STORAGE_KEY)
 let count = 10
 
-
 function fetchTaboolaRecommendations() {
 
     if (gTaboolaCache) return Promise.resolve(gTaboolaCache)

@@ -236,9 +236,7 @@ test('onDeleteRecommendation should delete recommendation', () => {
         { name: 'Recommendation 1', thumbnail: 'thumbnail1', url: 'url1', branding: 'branding1' },
       ])
   })
-  
-  
-   
+
 test('showing error container when error', () => {
     recController.renderError()
     expect(document.querySelector('.error-container').style.display)
